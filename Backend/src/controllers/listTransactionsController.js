@@ -1,6 +1,6 @@
 const { getTransactions } = require('../services/getTransaction');
 
-async function listTransactions(req, res){
+const listTransactions = async(req, res)=>{
   try {
     const result = await getTransactions(req.query);
     res.json(result);

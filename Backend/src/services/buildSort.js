@@ -1,4 +1,4 @@
-function buildSort({ sortBy, sortOrder }) {
+const buildSort = ({ sortBy, sortOrder })=>{
   const order = sortOrder === "asc" ? 1 : -1;
 
   switch (sortBy) {

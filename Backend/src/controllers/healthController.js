@@ -1,4 +1,4 @@
-async function health(req, res){
+const health = async(req, res)=>{
   res.json({ status: "ok", service: "transactions" });
 };
 

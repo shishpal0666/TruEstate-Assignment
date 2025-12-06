@@ -1,4 +1,4 @@
-function buildFilter(params) {
+const buildFilter = (params)=>{
   const {
     q,
     regions,
