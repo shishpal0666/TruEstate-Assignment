@@ -3,6 +3,7 @@ const { connectDB } = require("./utils/connectDB");
 require("dotenv").config();
 const morgan = require("morgan");
 const cors = require("cors");
+const errorMiddleware = require("./utils/errorMiddleware");
 
 
 const PORT = process.env.PORT;
@@ -11,6 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
+app.use(errorMiddleware);
 
 
 const transactionRoutes = require('./routes/transactionRoute');
