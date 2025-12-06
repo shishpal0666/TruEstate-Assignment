@@ -1,6 +1,6 @@
 const { getFiltersMetadata } = require("../services/getFilterMetadata");
 
-getFilters = async (req, res) => {
+const getFilters = async (req, res) => {
   try {
     const meta = await getFiltersMetadata();
     res.json(meta);
