@@ -1,26 +1,18 @@
-const { importFromCsvBuffer } = require("../services/csvTomongo");
+const { getTransactions } = require("../services/getTransaction");
 
-const health = (req, res) => res.json({ status: "ok" });
+health = (req, res) => {
+  res.json({ status: "ok", service: "transactions" });
+};
 
-const importCSV = async (req, res) => {
-  if (!req.file || !req.file.buffer) {
-    return res
-      .status(400)
-      .json({ error: 'CSV file is required in form field "file"' });
-  }
-
+listTransactions = async (req, res) => {
   try {
-    const { insertedCount, errors } = await importFromCsvBuffer(
-      req.file.buffer,
-      { batchSize: 500 }
-    );
-    return res.json({ insertedCount, errors });
+    const { page, pageSize } = req.query;
+    const result = await getTransactions({ page, pageSize });
+    res.json(result);
   } catch (err) {
-    console.error("Import failed", err);
-    return res
-      .status(500)
-      .json({ error: "Import failed", details: err.message });
+    console.error("Error in listTransactions:", err);
+    res.status(500).json({ error: "Failed to fetch transactions" });
   }
 };
 
-module.exports = { health, importCSV };
+module.exports = { health, listTransactions };
