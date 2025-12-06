@@ -1,13 +1,8 @@
 const { getFiltersMetadata } = require("../services/getFilterMetadata");
 
 const getFilters = async (req, res) => {
-  try {
-    const meta = await getFiltersMetadata();
-    res.json(meta);
-  } catch (err) {
-    console.error('Error in getFilters:', err);
-    res.status(500).json({ error: 'Failed to fetch filter metadata' });
-  }
+  const data = await getFiltersMetadata();
+  res.json(data);
 };
 
 module.exports = { getFilters };
