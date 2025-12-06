@@ -13,10 +13,8 @@ app.use(cors());
 app.use(morgan("dev"));
 
 
-const helloRoute = require("./routes/helloRoute");
 const transactionRoutes = require('./routes/transactionRoute');
 
-app.use("/api", helloRoute);
 app.use('/api/transactions', transactionRoutes);
 
 connectDB()

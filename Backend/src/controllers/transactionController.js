@@ -1,13 +1,8 @@
-const { getTransactions } = require("../services/getTransaction");
+const { getTransactions } = require('../services/getTransaction');
 
-health = (req, res) => {
-  res.json({ status: "ok", service: "transactions" });
-};
-
-listTransactions = async (req, res) => {
+async function listTransactions(req, res){
   try {
-    const { page, pageSize } = req.query;
-    const result = await getTransactions({ page, pageSize });
+    const result = await getTransactions(req.query);
     res.json(result);
   } catch (err) {
     console.error("Error in listTransactions:", err);
@@ -15,4 +10,4 @@ listTransactions = async (req, res) => {
   }
 };
 
-module.exports = { health, listTransactions };
+module.exports = { listTransactions };
