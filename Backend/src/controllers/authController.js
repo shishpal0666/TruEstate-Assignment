@@ -3,6 +3,13 @@ const { registerUser, loginUser } = require("../services/auth");
 const COOKIE_NAME = process.env.COOKIE_NAME;
 const COOKIE_MAX_AGE = 7 * 24 * 60 * 60 * 1000; 
 
+const me = async (req, res) => {
+  if (!req.user) {
+    return res.status(401).json({ message: "Not authenticated" });
+  }
+  return res.json({ user: req.user });
+};
+
 const register = async (req, res) => {
   const user = await registerUser(req.body);
   res.json({ user, message: "Registered successfully" });
@@ -34,4 +41,4 @@ const logout = async (req, res) => {
 };
 
 
-module.exports = { register, login, logout };
+module.exports = { me, register, login, logout };
