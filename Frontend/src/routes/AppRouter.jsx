@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router';
 import Login from '../components/Auth/Login';
 import Dashboard from '../components/Dashboard/Dashboard';
 import { AuthProvider, useAuth } from '../hooks/useAuth';
+import { FiltersProvider } from '../utils/FiltersContext';
 
 function ProtectedRoute({ children }) {
   const { user, loading } = useAuth();
@@ -14,11 +15,13 @@ function ProtectedRoute({ children }) {
 export default function AppRouter() {
   return (
     <AuthProvider>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </AuthProvider> 
+      <FiltersProvider>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </FiltersProvider>
+    </AuthProvider>
   );
 }

@@ -12,4 +12,4 @@ const buildSort = ({ sortBy, sortOrder })=>{
   }
 }
 
-module.export = { buildSort };
+module.exports = { buildSort };
