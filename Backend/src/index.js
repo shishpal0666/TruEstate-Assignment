@@ -16,7 +16,9 @@ app.use(errorMiddleware);
 
 
 const transactionRoutes = require('./routes/transactionRoute');
+const authRoutes = require("./routes/authRoute");
 
+app.use("/api/auth", authRoutes);
 app.use('/api/transactions', transactionRoutes);
 
 connectDB()
