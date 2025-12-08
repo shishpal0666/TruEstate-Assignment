@@ -1,10 +1,10 @@
-## Architecture Documentation
+# Architecture Documentation
 
-Backend Architecture
+## 1. Backend Architecture
 
 The backbone architecture is on **Node.js** with **Express.js** and strictly follows a **Controller-Service-Model** pattern for maintainability and separation of concerns.
 
-Key Implementation Dtails
+### Key Implementation Details
 - **Authentication**: This was built using **JWT (JSON Web Tokens)**, which is stored inside **HTTP-only cookies** for security.
     - `authMiddleware.js`: This intercepts requests to protected routes, verifies the token, and then attaches the user to the `req` object.
     - `authController.js`: Handles login/register, setting cookies with appropriate security flags (`httpOnly`, `secure`, `sameSite`).
