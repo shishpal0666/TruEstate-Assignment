@@ -9,8 +9,8 @@ export default function Sidebar() {
   const displayEmail = user?.email || 'admin@truestate.com';
   const [showUserMenu, setShowUserMenu] = useState(false);
 
-  const [servicesOpen, setServicesOpen] = useState(true);
-  const [invoicesOpen, setInvoicesOpen] = useState(true);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [invoicesOpen, setInvoicesOpen] = useState(false);
 
   const handleLogout = async () => {
     await logout();
@@ -53,7 +53,6 @@ export default function Sidebar() {
             <div className="p-4 border-b bg-gray-50">
               <div className="font-semibold text-gray-900">{displayName}</div>
               <div className="text-sm text-gray-500">{displayEmail}</div>
-              <div className="text-xs text-blue-600 mt-1 uppercase font-bold">Administrator</div>
             </div>
 
             <button onClick={handleLogout} className="w-full text-left px-4 py-3 text-red-600 hover:bg-red-50 flex items-center gap-2 transition-colors">

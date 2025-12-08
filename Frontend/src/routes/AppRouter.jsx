@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router';
 import Login from '../components/Auth/Login';
+import Register from '../components/Auth/Register';
 import Dashboard from '../components/Dashboard/Dashboard';
 import { AuthProvider, useAuth } from '../hooks/useAuth';
 import { FiltersProvider } from '../utils/FiltersContext';
@@ -18,6 +19,7 @@ export default function AppRouter() {
       <FiltersProvider>
         <Routes>
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate, Link } from 'react-router';
 import { login } from '../../services/auth';
 import { useAuth } from '../../hooks/useAuth';
 
@@ -32,6 +32,10 @@ export default function Login() {
         <label className="block mb-2">Password</label>
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full p-2 border rounded mb-4" />
         <button type="submit" className="w-full py-2 bg-blue-600 text-white rounded">Login</button>
+
+        <div className="mt-4 text-center text-sm">
+          Don't have an account? <Link to="/register" className="text-blue-600 hover:underline">Register</Link>
+        </div>
       </form>
     </div>
   );

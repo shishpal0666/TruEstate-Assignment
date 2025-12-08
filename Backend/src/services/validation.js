@@ -24,10 +24,12 @@ exports.transactionQuerySchema = Joi.object({
 
   ageMin: Joi.alternatives().try(Joi.number().min(0), Joi.string().allow('').optional()).optional(),
   ageMax: Joi.alternatives().try(Joi.number().min(0), Joi.string().allow('').optional()).optional(),
+  ageRangeLabel: Joi.string().allow('').optional(),
 
   dateFrom: optionalDateOrEmpty,
   dateTo: optionalDateOrEmpty,
 
   sortBy: Joi.string().valid('date', 'quantity', 'customerName').optional(),
-  sortOrder: Joi.string().valid('asc', 'desc').optional()
+  sortOrder: Joi.string().valid('asc', 'desc').optional(),
+  sortLabel: Joi.string().allow('').optional()
 });

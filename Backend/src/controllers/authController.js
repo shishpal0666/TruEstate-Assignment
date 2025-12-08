@@ -11,7 +11,17 @@ const me = async (req, res) => {
 };
 
 const register = async (req, res) => {
-  const user = await registerUser(req.body);
+  const { token, user } = await registerUser(req.body);
+  
+  const isProd = process.env.NODE_ENV === 'production';
+
+  res.cookie(COOKIE_NAME, token, {
+    httpOnly: true,
+    secure: isProd, 
+    sameSite: isProd ? 'none' : 'lax', 
+    maxAge: COOKIE_MAX_AGE
+  });
+
   res.json({ user, message: "Registered successfully" });
 };
 

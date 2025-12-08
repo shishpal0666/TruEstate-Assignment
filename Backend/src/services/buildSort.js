@@ -5,7 +5,7 @@ const buildSort = ({ sortBy, sortOrder })=>{
     case "quantity":
       return { "sales.quantity": order, _id: 1 };
     case "customerName":
-      return { "customer.name_lower": order, _id: 1 };
+      return { "customer.name": order, _id: 1 };
     case "date":
     default:
       return { date: order, _id: 1 };

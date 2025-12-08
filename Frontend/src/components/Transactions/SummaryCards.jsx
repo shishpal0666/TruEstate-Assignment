@@ -34,19 +34,19 @@ export default function SummaryCards({ filters }) {
     <div className="flex gap-4 h-full items-center px-6">
       <div className={cardClass}>
         <div className={labelClass}>Total units sold <span className="text-gray-300">ⓘ</span></div>
-        <div className={valueClass}>{data?.totalUnits ?? 10}</div>
+        <div className={valueClass}>{data?.totalUnits ?? 0}</div>
       </div>
       <div className={cardClass}>
         <div className={labelClass}>Total Amount <span className="text-gray-300">ⓘ</span></div>
         <div className={valueClass}>
-          ₹{(data?.totalAmount ?? 89000).toLocaleString()}
+          ₹{(data?.totalAmount ?? 0).toLocaleString()}
           <span className={subTextClass}>(19 SRs)</span>
         </div>
       </div>
       <div className={cardClass}>
         <div className={labelClass}>Total Discount <span className="text-gray-300">ⓘ</span></div>
         <div className={valueClass}>
-          ₹{(data?.totalDiscount ?? 15000).toLocaleString()}
+          ₹{(data?.totalDiscount ?? 0).toLocaleString()}
           <span className={subTextClass}>(45 SRs)</span>
         </div>
       </div>
