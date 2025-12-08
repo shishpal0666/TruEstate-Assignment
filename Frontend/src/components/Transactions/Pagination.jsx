@@ -7,12 +7,18 @@ export default function Pagination({ meta, onChange }) {
   const pages = Array.from({ length: Math.min(totalPages, maxShow) }, (_, i) => i + 1);
 
   return (
-    <div className="p-4 flex items-center justify-center gap-2">
-      <button onClick={() => onChange(Math.max(1, page - 1))} disabled={page === 1} className="px-3 py-1 border rounded">Prev</button>
-      {pages.map((p) => (
-        <button key={p} onClick={() => onChange(p)} className={`px-3 py-1 border rounded ${p === page ? 'bg-gray-800 text-white' : ''}`}>{p}</button>
-      ))}
-      <button onClick={() => onChange(Math.min(totalPages, page + 1))} disabled={page === totalPages} className="px-3 py-1 border rounded">Next</button>
+    <div className="h-full flex items-center justify-center border-t bg-white">
+      <div className="flex gap-2">
+        {pages.map((p) => (
+          <button
+            key={p}
+            onClick={() => onChange(p)}
+            className={`w-8 h-8 flex items-center justify-center rounded ${p === page ? 'bg-black text-white' : 'bg-gray-100 hover:bg-gray-200'}`}
+          >
+            {p}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }

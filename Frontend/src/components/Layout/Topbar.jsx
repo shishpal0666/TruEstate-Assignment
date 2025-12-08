@@ -6,10 +6,7 @@ import { useFiltersContext } from '../../utils/FiltersContext';
 import useDebounce from '../../hooks/useDebounce';
 
 export default function Topbar() {
-  const { user, setUser } = useAuth();
-  const navigate = useNavigate();
   const { filters, setFilters } = useFiltersContext();
-
   const [searchInput, setSearchInput] = useState(filters.q || '');
   const debouncedSearch = useDebounce(searchInput, 350);
 
@@ -23,28 +20,19 @@ export default function Topbar() {
     setSearchInput(filters.q || '');
   }, [filters.q]);
 
-  const doLogout = async () => {
-    await logout();
-    setUser(null);
-    navigate('/login');
-  };
-
   return (
-    <header className="bg-white p-4 border-b flex items-center justify-between">
-      <div className="flex items-center gap-3">
-        <button className="p-2 rounded bg-gray-100">⟳</button>
+    <div className="h-full flex items-center justify-between px-6 bg-white border-b">
+      <h1 className="text-xl font-bold text-gray-800">Sales Management System</h1>
+
+      <div className="relative">
+        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">🔍</span>
         <input
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
           placeholder="Name, Phone no."
-          className="p-2 border rounded w-96"
+          className="pl-10 pr-4 py-2 border rounded-full bg-gray-50 w-80 focus:outline-none focus:ring-1 focus:ring-gray-300"
         />
       </div>
-
-      <div className="flex items-center gap-4">
-        <div className="text-sm text-gray-600">{user?.name}</div>
-        <button onClick={doLogout} className="py-1 px-3 bg-red-50 text-red-600 rounded">Logout</button>
-      </div>
-    </header>
+    </div>
   );
 }

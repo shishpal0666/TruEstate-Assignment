@@ -24,19 +24,23 @@ export default function SummaryCards({ filters }) {
     keepPreviousData: true
   });
 
+  const cardClass = "bg-white p-4 rounded-xl border flex flex-col justify-between w-64 h-full";
+  const labelClass = "text-gray-500 text-sm flex items-center gap-2";
+  const valueClass = "text-3xl font-bold mt-2";
+
   return (
-    <div className="flex gap-4 mb-4">
-      <div className="bg-white p-4 rounded shadow w-48">
-        <div className="text-sm text-gray-500">Total units sold</div>
-        <div className="text-2xl font-bold">{data?.totalUnits ?? 0}</div>
+    <div className="flex gap-4 h-full items-center px-6">
+      <div className={cardClass}>
+        <div className={labelClass}>Total units sold <span className="text-gray-300">ⓘ</span></div>
+        <div className={valueClass}>{data?.totalUnits ?? 0}</div>
       </div>
-      <div className="bg-white p-4 rounded shadow w-48">
-        <div className="text-sm text-gray-500">Total Amount</div>
-        <div className="text-2xl font-bold">₹{data?.totalAmount?.toLocaleString() ?? 0}</div>
+      <div className={cardClass}>
+        <div className={labelClass}>Total Amount <span className="text-gray-300">ⓘ</span></div>
+        <div className={valueClass}>₹{data?.totalAmount?.toLocaleString() ?? 0}</div>
       </div>
-      <div className="bg-white p-4 rounded shadow w-48">
-        <div className="text-sm text-gray-500">Total Discount</div>
-        <div className="text-2xl font-bold">₹{data?.totalDiscount?.toLocaleString() ?? 0}</div>
+      <div className={cardClass}>
+        <div className={labelClass}>Total Discount <span className="text-gray-300">ⓘ</span></div>
+        <div className={valueClass}>₹{data?.totalDiscount?.toLocaleString() ?? 0}</div>
       </div>
     </div>
   );
