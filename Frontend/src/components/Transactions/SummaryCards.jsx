@@ -24,14 +24,14 @@ export default function SummaryCards({ filters }) {
     keepPreviousData: true
   });
 
-  const cardClass = "bg-white p-4 rounded-xl border flex flex-col justify-between w-64 h-full";
-  const labelClass = "text-gray-500 text-sm flex items-center gap-2";
-  const valueClass = "text-2xl font-bold mt-2";
-  const subTextClass = "text-lg font-normal text-gray-500 ml-1";
+  const cardClass = "bg-white px-4 py-3 rounded-xl border border-gray-200 flex flex-col justify-center min-w-[200px] shadow-sm hover:shadow-md transition-all duration-300";
+  const labelClass = "text-gray-500 text-[10px] uppercase tracking-wider font-semibold flex items-center gap-1";
+  const valueClass = "text-xl font-bold text-gray-900 mt-0.5 tracking-tight";
+  const subTextClass = "text-xs font-medium text-gray-400 ml-1.5";
 
 
   return (
-    <div className="flex gap-4 h-full items-center px-6">
+    <div className="flex gap-6 h-full items-center px-8">
       <div className={cardClass}>
         <div className={labelClass}>Total units sold <span className="text-gray-300">ⓘ</span></div>
         <div className={valueClass}>{data?.totalUnits ?? 0}</div>

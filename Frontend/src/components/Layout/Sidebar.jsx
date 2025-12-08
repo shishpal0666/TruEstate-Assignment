@@ -17,13 +17,13 @@ export default function Sidebar() {
     window.location.href = '/login';
   };
 
-  const navItemClass = "flex items-center gap-3 px-3 py-2 text-gray-600 hover:text-black rounded-lg transition-colors";
-  const activeNavItemClass = "flex items-center gap-3 px-3 py-2 text-black font-medium bg-gray-100 rounded-lg transition-colors";
-  const groupCardClass = "bg-white p-2 rounded-xl border shadow-sm mb-4";
-  const groupHeaderClass = "flex items-center justify-between px-3 py-2 text-gray-700 font-medium cursor-pointer hover:bg-gray-50 rounded-lg";
+  const navItemClass = "flex items-center gap-3 px-3 py-2.5 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium text-sm";
+  const activeNavItemClass = "flex items-center gap-3 px-3 py-2.5 text-gray-900 font-semibold bg-white shadow-sm border border-gray-100 rounded-lg transition-all duration-200 text-sm";
+  const groupCardClass = "bg-white/50 p-2 rounded-xl mb-4";
+  const groupHeaderClass = "flex items-center justify-between px-3 py-2.5 text-gray-600 font-semibold text-sm cursor-pointer hover:bg-gray-100/50 rounded-lg transition-colors";
 
   return (
-    <aside className="h-full bg-gray-50 border-r flex flex-col p-4 overflow-y-auto font-sans">
+    <aside className="h-full bg-[#F9F8F6] flex flex-col p-6 overflow-y-auto font-sans">
 
       <div className="relative mb-6">
         <div

@@ -41,14 +41,14 @@ export default function Pagination({ meta, onChange }) {
   const pageNumbers = getPageNumbers();
 
   return (
-    <div className="h-full flex items-center justify-center border-t bg-white">
+    <div className="h-full flex items-center justify-center bg-white">
       <div className="flex gap-2 items-center">
         <button
           onClick={() => onChange(Math.max(1, page - 1))}
           disabled={page === 1}
-          className="w-8 h-8 flex items-center justify-center rounded bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-100 bg-[#F9F8F6] text-gray-600 hover:bg-gray-200 hover:text-black disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm"
         >
-          &lt;
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
         </button>
 
         {pageNumbers.map((p, idx) => (
@@ -56,11 +56,11 @@ export default function Pagination({ meta, onChange }) {
             key={idx}
             onClick={() => typeof p === 'number' && onChange(p)}
             disabled={typeof p !== 'number'}
-            className={`w-8 h-8 flex items-center justify-center rounded ${p === page
-              ? 'bg-black text-white'
+            className={`w-9 h-9 flex items-center justify-center rounded-lg border text-sm font-medium transition-all shadow-sm ${p === page
+              ? 'bg-black text-white border-black ring-2 ring-gray-100'
               : typeof p === 'number'
-                ? 'bg-gray-100 hover:bg-gray-200'
-                : 'bg-transparent cursor-default'
+                ? 'bg-[#F9F8F6] border-gray-100 text-gray-600 hover:bg-gray-200 hover:text-black hover:border-gray-300'
+                : 'bg-transparent border-transparent cursor-default shadow-none text-gray-400'
               }`}
           >
             {p}
@@ -70,9 +70,9 @@ export default function Pagination({ meta, onChange }) {
         <button
           onClick={() => onChange(Math.min(totalPages, page + 1))}
           disabled={page === totalPages}
-          className="w-8 h-8 flex items-center justify-center rounded bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-100 bg-[#F9F8F6] text-gray-600 hover:bg-gray-200 hover:text-black disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm"
         >
-          &gt;
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
         </button>
       </div>
     </div>

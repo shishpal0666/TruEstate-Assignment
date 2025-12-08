@@ -21,7 +21,7 @@ export default function Topbar() {
   }, [filters.q]);
 
   return (
-    <div className="h-full flex items-center justify-between px-6 bg-white border-b">
+    <div className="h-full flex items-center justify-between px-8 bg-white">
       <h1 className="text-xl font-bold text-gray-800">Sales Management System</h1>
 
       <div className="relative">
@@ -34,7 +34,7 @@ export default function Topbar() {
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
           placeholder="Name, Phone no."
-          className="pl-10 pr-4 py-2 border rounded-md bg-gray-100 w-96 focus:outline-none focus:ring-1 focus:ring-gray-300 text-sm"
+          className="pl-10 pr-4 py-2 border border-gray-200 rounded-lg bg-[#F9F8F6] w-96 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent text-sm transition-shadow placeholder-gray-400"
         />
       </div>
     </div>
