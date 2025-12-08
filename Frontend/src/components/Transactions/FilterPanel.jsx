@@ -23,7 +23,13 @@ export default function FilterPanel({ filters, setFilters }) {
   return (
     <div className="flex justify-between items-center w-full h-full px-6 bg-white border-b">
       <div className="flex gap-3 items-center flex-wrap">
-        <button className="w-8 h-8 rounded-full border flex items-center justify-center hover:bg-gray-50">↻</button>
+        <button
+          onClick={() => setFilters({ page: 1, pageSize: 10 })}
+          className="w-8 h-8 rounded-full border flex items-center justify-center hover:bg-gray-50 text-gray-600"
+          title="Reset Filters"
+        >
+          ↻
+        </button>
 
         <select value={filters.regions || ''} onChange={(e) => onMultiChange('regions', e.target.value)} className={selectClass}>
           <option value="">Customer Region</option>
@@ -44,9 +50,6 @@ export default function FilterPanel({ filters, setFilters }) {
           <span className="text-sm text-gray-600">Date</span>
           <input type="date" value={filters.dateFrom || ''} onChange={(e) => setFilters({ ...filters, dateFrom: e.target.value })} className="bg-transparent border-none text-sm p-1 focus:ring-0" />
         </div>
-        {(filters.regions || filters.productCategories || filters.paymentMethods || filters.dateFrom) && (
-          <button onClick={() => setFilters({ page: 1, pageSize: 10 })} className="text-red-500 text-sm hover:underline">Reset</button>
-        )}
       </div>
 
       <div>
