@@ -15,7 +15,12 @@ const buildFilter = (params)=>{
   const filter = {};
 
   if (q && typeof q === "string" && q.trim().length > 0) {
-    filter.$text = { $search: q.trim() };
+    const searchRegex = { $regex: q.trim(), $options: "i" };
+    filter.$or = [
+      { "customer.name": searchRegex },
+      { "customer.phone": searchRegex },
+      { "customer.phone_normalized": searchRegex },
+    ];
   }
 
   const toArray = (val) => {
