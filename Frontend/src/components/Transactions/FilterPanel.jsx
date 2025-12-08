@@ -43,14 +43,14 @@ export default function FilterPanel({ filters, setFilters }) {
 
   if (!meta) return <div className="p-4">Loading filters...</div>;
 
-  const selectClass = "appearance-none bg-[#F9F8F6] border border-gray-200 px-3 py-1.5 rounded-lg text-xs font-medium text-gray-600 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent cursor-pointer transition-all shadow-sm bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%207L10%2012L15%207%22%20stroke%3D%22%236B7280%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E')] bg-[length:1em_1em] bg-no-repeat bg-[right_0.4rem_center] pr-8";
+  const selectClass = "appearance-none bg-[#f3f3f3] border border-gray-200 px-3 py-1.5 rounded-lg text-xs font-medium text-gray-600 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent cursor-pointer transition-all shadow-sm bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%207L10%2012L15%207%22%20stroke%3D%22%236B7280%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E')] bg-[length:1em_1em] bg-no-repeat bg-[right_0.4rem_center] pr-8";
 
   return (
     <div className="flex justify-between items-center w-full h-full px-8 bg-white">
       <div className="flex gap-2 items-center flex-wrap">
         <button
           onClick={resetFilters}
-          className="w-8 h-8 rounded-lg bg-[#F9F8F6] border border-gray-200 flex items-center justify-center hover:bg-gray-50 hover:border-gray-300 text-gray-500 hover:text-black transition-all shadow-sm"
+          className="w-8 h-8 rounded-lg bg-[#f3f3f3] border border-gray-200 flex items-center justify-center hover:bg-gray-50 hover:border-gray-300 text-gray-500 hover:text-black transition-all shadow-sm"
           title="Reset Filters"
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>

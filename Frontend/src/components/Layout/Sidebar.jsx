@@ -23,7 +23,7 @@ export default function Sidebar() {
   const groupHeaderClass = "flex items-center justify-between px-3 py-2.5 text-gray-600 font-semibold text-sm cursor-pointer hover:bg-gray-100/50 rounded-lg transition-colors";
 
   return (
-    <aside className="h-full bg-[#F9F8F6] flex flex-col p-6 overflow-y-auto font-sans">
+    <aside className="h-full bg-[#f3f3f3] flex flex-col p-6 overflow-y-auto font-sans">
 
       <div className="relative mb-6">
         <div

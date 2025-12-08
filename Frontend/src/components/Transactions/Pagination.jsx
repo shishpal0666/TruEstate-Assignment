@@ -46,7 +46,7 @@ export default function Pagination({ meta, onChange }) {
         <button
           onClick={() => onChange(Math.max(1, page - 1))}
           disabled={page === 1}
-          className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-100 bg-[#F9F8F6] text-gray-600 hover:bg-gray-200 hover:text-black disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm"
+          className="h-9 px-3 flex items-center justify-center rounded-lg border border-gray-100 bg-[#f3f3f3] text-gray-600 hover:bg-gray-200 hover:text-black disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm"
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
         </button>
@@ -56,10 +56,10 @@ export default function Pagination({ meta, onChange }) {
             key={idx}
             onClick={() => typeof p === 'number' && onChange(p)}
             disabled={typeof p !== 'number'}
-            className={`w-9 h-9 flex items-center justify-center rounded-lg border text-sm font-medium transition-all shadow-sm ${p === page
+            className={`h-9 min-w-[2.25rem] px-3 flex items-center justify-center rounded-lg border text-sm font-medium transition-all shadow-sm ${p === page
               ? 'bg-black text-white border-black ring-2 ring-gray-100'
               : typeof p === 'number'
-                ? 'bg-[#F9F8F6] border-gray-100 text-gray-600 hover:bg-gray-200 hover:text-black hover:border-gray-300'
+                ? 'bg-[#f3f3f3] border-gray-100 text-gray-600 hover:bg-gray-200 hover:text-black hover:border-gray-300'
                 : 'bg-transparent border-transparent cursor-default shadow-none text-gray-400'
               }`}
           >
@@ -70,7 +70,7 @@ export default function Pagination({ meta, onChange }) {
         <button
           onClick={() => onChange(Math.min(totalPages, page + 1))}
           disabled={page === totalPages}
-          className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-100 bg-[#F9F8F6] text-gray-600 hover:bg-gray-200 hover:text-black disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm"
+          className="h-9 px-3 flex items-center justify-center rounded-lg border border-gray-100 bg-[#f3f3f3] text-gray-600 hover:bg-gray-200 hover:text-black disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm"
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
         </button>
