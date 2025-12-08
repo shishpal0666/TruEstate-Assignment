@@ -81,9 +81,7 @@ export default function FilterPanel({ filters, setFilters }) {
 
         <select value={filters.tags || ''} onChange={(e) => handleFilterChange('tags', e.target.value)} className={selectClass}>
           <option value="">Tags</option>
-          <option value="VIP">VIP</option>
-          <option value="New">New</option>
-          <option value="Regular">Regular</option>
+          {meta.tags.map(t => <option key={t} value={t}>{t}</option>)}
         </select>
 
         <select value={filters.paymentMethods || ''} onChange={(e) => handleFilterChange('paymentMethods', e.target.value)} className={selectClass}>
