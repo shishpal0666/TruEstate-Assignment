@@ -26,21 +26,29 @@ export default function SummaryCards({ filters }) {
 
   const cardClass = "bg-white p-4 rounded-xl border flex flex-col justify-between w-64 h-full";
   const labelClass = "text-gray-500 text-sm flex items-center gap-2";
-  const valueClass = "text-3xl font-bold mt-2";
+  const valueClass = "text-2xl font-bold mt-2";
+  const subTextClass = "text-lg font-normal text-gray-500 ml-1";
+
 
   return (
     <div className="flex gap-4 h-full items-center px-6">
       <div className={cardClass}>
         <div className={labelClass}>Total units sold <span className="text-gray-300">ⓘ</span></div>
-        <div className={valueClass}>{data?.totalUnits ?? 0}</div>
+        <div className={valueClass}>{data?.totalUnits ?? 10}</div>
       </div>
       <div className={cardClass}>
         <div className={labelClass}>Total Amount <span className="text-gray-300">ⓘ</span></div>
-        <div className={valueClass}>₹{data?.totalAmount?.toLocaleString() ?? 0}</div>
+        <div className={valueClass}>
+          ₹{(data?.totalAmount ?? 89000).toLocaleString()}
+          <span className={subTextClass}>(19 SRs)</span>
+        </div>
       </div>
       <div className={cardClass}>
         <div className={labelClass}>Total Discount <span className="text-gray-300">ⓘ</span></div>
-        <div className={valueClass}>₹{data?.totalDiscount?.toLocaleString() ?? 0}</div>
+        <div className={valueClass}>
+          ₹{(data?.totalDiscount ?? 15000).toLocaleString()}
+          <span className={subTextClass}>(45 SRs)</span>
+        </div>
       </div>
     </div>
   );

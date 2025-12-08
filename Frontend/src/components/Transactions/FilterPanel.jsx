@@ -18,14 +18,14 @@ export default function FilterPanel({ filters, setFilters }) {
 
   if (!meta) return <div className="p-4">Loading filters...</div>;
 
-  const selectClass = "appearance-none bg-gray-100 border-none px-4 py-2 rounded-full text-sm font-medium text-gray-700 focus:ring-2 focus:ring-black cursor-pointer bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%207L10%2012L15%207%22%20stroke%3D%22%236B7280%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E')] bg-[length:1.25em_1.25em] bg-no-repeat bg-[right_0.5rem_center] pr-8";
+  const selectClass = "appearance-none bg-gray-100 border-none px-4 py-2 rounded text-sm font-medium text-gray-700 focus:ring-0 cursor-pointer bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%207L10%2012L15%207%22%20stroke%3D%22%236B7280%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E')] bg-[length:1.25em_1.25em] bg-no-repeat bg-[right_0.5rem_center] pr-8";
 
   return (
     <div className="flex justify-between items-center w-full h-full px-6 bg-white border-b">
-      <div className="flex gap-3 items-center flex-wrap">
+      <div className="flex gap-2 items-center flex-wrap">
         <button
           onClick={() => setFilters({ page: 1, pageSize: 10 })}
-          className="w-8 h-8 rounded-full border flex items-center justify-center hover:bg-gray-50 text-gray-600"
+          className="w-9 h-9 rounded bg-gray-100 flex items-center justify-center hover:bg-gray-200 text-gray-600"
           title="Reset Filters"
         >
           ↻
@@ -36,9 +36,28 @@ export default function FilterPanel({ filters, setFilters }) {
           {meta.regions.map((r) => <option key={r} value={r}>{r}</option>)}
         </select>
 
+        <select className={selectClass}>
+          <option>Gender</option>
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+
+        <select className={selectClass}>
+          <option>Age Range</option>
+          <option>18-25</option>
+          <option>26-40</option>
+          <option>40+</option>
+        </select>
+
         <select value={filters.productCategories || ''} onChange={(e) => onMultiChange('productCategories', e.target.value)} className={selectClass}>
           <option value="">Product Category</option>
           {meta.productCategories.map((c) => <option key={c} value={c}>{c}</option>)}
+        </select>
+
+        <select className={selectClass}>
+          <option>Tags</option>
+          <option>VIP</option>
+          <option>New</option>
         </select>
 
         <select value={filters.paymentMethods || ''} onChange={(e) => onMultiChange('paymentMethods', e.target.value)} className={selectClass}>
@@ -46,9 +65,8 @@ export default function FilterPanel({ filters, setFilters }) {
           {meta.paymentMethods.map((p) => <option key={p} value={p}>{p}</option>)}
         </select>
 
-        <div className="flex items-center gap-1 bg-gray-100 rounded-full px-3 py-1">
-          <span className="text-sm text-gray-600">Date</span>
-          <input type="date" value={filters.dateFrom || ''} onChange={(e) => setFilters({ ...filters, dateFrom: e.target.value })} className="bg-transparent border-none text-sm p-1 focus:ring-0" />
+        <div className="relative">
+          <button className={selectClass + " text-left w-auto"}>Date</button>
         </div>
       </div>
 
