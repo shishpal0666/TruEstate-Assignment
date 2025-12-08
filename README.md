@@ -40,9 +40,17 @@ cd ../Frontend && npm install
 ### 2. Environment Variables
 Create a `.env` file in the `Backend` directory:
 ```env
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
 PORT=5000
+MONGODB_STRING=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+FRONTEND_URL=http://localhost:5173
+COOKIE_NAME=auth_token
+NODE_ENV=development
+```
+
+Create a `.env` file in the `Frontend` directory:
+```env
+VITE_API_BASE=http://localhost:5000
 ```
 
 ### 3. Run Application
